@@ -3,11 +3,11 @@
 #include <time.h>
 #include <stdlib.h>
 
-#define tate 15       //c‚ÌL‚³
-#define yoko 15       //‰¡‚ÌL‚³
-#define bombnumber 16 //”š’e‚Ì”
+#define tate 15       //ï¿½cï¿½ÌLï¿½ï¿½
+#define yoko 15       //ï¿½ï¿½ï¿½ÌLï¿½ï¿½
+#define bombnumber 16 //ï¿½ï¿½ï¿½eï¿½Ìï¿½
 
-#define bomb -1 //‚¢‚¶‚é‚È(•‰‚Ì®”‚È‚ç‘½•ª‘åä•v‚©‚àB)
+#define bomb -1 //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½È‚ç‘½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½B)
 
 int BAN[10][tate+2][yoko+2];
 int endflag;
@@ -32,30 +32,30 @@ void hyouzi(){
 		for (j = 0; j < yoko + 2; j++){
 			if (i == 0){
 				if (j == 0){
-					printf("„¬");
+					printf("ï¿½ï¿½");
 				}
 				else if (j == yoko + 1){
-					printf("„­");
+					printf("ï¿½ï¿½");
 				}
 				else{
-					printf("„ª");
+					printf("ï¿½ï¿½");
 				}
 			}
 			else if (i == tate + 1){
 				if (j == 0){
-					printf("„¯");
+					printf("ï¿½ï¿½");
 				}
 				else if (j == yoko + 1){
-					printf("„®");
+					printf("ï¿½ï¿½");
 				}
 				else{
-					printf("„ª");
+					printf("ï¿½ï¿½");
 
 				}
 			}
 			else{
 				if (j == 0 || j == yoko + 1){
-					printf("„«");
+					printf("ï¿½ï¿½");
 				}
 				else if(BAN[2][i][j]==1){
 					printf("%d ", BAN[0][i][j]);
@@ -72,7 +72,7 @@ void hyouzi(){
 
 void nyuuryoku(){
 	do{
-		printf("‚Ç‚±‚É’u‚­H");
+		printf("ï¿½Ç‚ï¿½ï¿½É’uï¿½ï¿½ï¿½H");
 		scanf("%d", &number);
 	} while (BAN[2][number % 10000 / 100][number % 100] != 0 || ((number % 10000) / 100) > tate || ((number % 10000) / 100)<=0 || (number % 100) > yoko || (number % 100)<=0);
 	BAN[2][number % 10000 / 100][number % 100] = 1;
@@ -149,12 +149,12 @@ int main(){
 			haiti(); 
 		}
 	} while (endflag == 0);
-	printf("‚¨‚µ‚Ü‚¢\n");
-	if (endflag == 1){
-		printf("ƒNƒŠƒA[I");
+	printf("ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½\n");
+	if (endflag == 2){
+		printf("ï¿½Nï¿½ï¿½ï¿½Aï¿½[ï¿½I");
 	}
-	else if (endflag == 2){
-		printf("¸”sEEE");
+	else if (endflag == 1){
+		printf("ï¿½ï¿½ï¿½sï¿½Eï¿½Eï¿½E");
 	}
 	return 0;
 }
