@@ -3,11 +3,11 @@
 #include <time.h>
 #include <stdlib.h>
 
-#define tate 15       //�c�̍L��
-#define yoko 15       //���̍L��
-#define bombnumber 16 //���e�̐�
+#define tate 15       //縦の広さ
+#define yoko 15       //横の広さ
+#define bombnumber 16 //爆弾の数
 
-#define bomb -1 //��������(���̐����Ȃ瑽�������v�����B)
+#define bomb -1 //いじるな(負の整数なら多分大丈夫かも。)
 
 int BAN[10][tate+2][yoko+2];
 int endflag;
@@ -32,30 +32,30 @@ void hyouzi(){
 		for (j = 0; j < yoko + 2; j++){
 			if (i == 0){
 				if (j == 0){
-					printf("��");
+					printf("┏");
 				}
 				else if (j == yoko + 1){
-					printf("��");
+					printf("┓");
 				}
 				else{
-					printf("��");
+					printf("━");
 				}
 			}
 			else if (i == tate + 1){
 				if (j == 0){
-					printf("��");
+					printf("┗");
 				}
 				else if (j == yoko + 1){
-					printf("��");
+					printf("┛");
 				}
 				else{
-					printf("��");
+					printf("━");
 
 				}
 			}
 			else{
 				if (j == 0 || j == yoko + 1){
-					printf("��");
+					printf("┃");
 				}
 				else if(BAN[2][i][j]==1){
 					printf("%d ", BAN[0][i][j]);
@@ -72,7 +72,7 @@ void hyouzi(){
 
 void nyuuryoku(){
 	do{
-		printf("�ǂ��ɒu���H");
+		printf("どこに置く？");
 		scanf("%d", &number);
 	} while (BAN[2][number % 10000 / 100][number % 100] != 0 || ((number % 10000) / 100) > tate || ((number % 10000) / 100)<=0 || (number % 100) > yoko || (number % 100)<=0);
 	BAN[2][number % 10000 / 100][number % 100] = 1;
@@ -149,12 +149,12 @@ int main(){
 			haiti(); 
 		}
 	} while (endflag == 0);
-	printf("�����܂�\n");
+	printf("おしまい\n");
 	if (endflag == 2){
-		printf("�N���A�[�I");
+		printf("クリアー！");
 	}
 	else if (endflag == 1){
-		printf("���s�E�E�E");
+		printf("失敗・・・");
 	}
 	return 0;
 }
